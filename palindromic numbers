@@ -1,0 +1,13 @@
+n = int(input("Enter a number: "))
+dn = n
+n1 = str(n)
+rev = 0
+for i in range(len(n1)):
+    a = n % 10
+    rev = rev*10 + a
+    n = n//10
+print(rev)
+if dn == rev:
+    print("It is a Palindrom")
+else:
+    print("It is not a Palindrom")
