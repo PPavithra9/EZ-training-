@@ -1,0 +1,31 @@
+a = {1:"qww", 2:"rew", 3:"ree"}
+print(b.get(1))
+a.update({2:123,"ab":100})
+print(a)
+b = a.copy()
+print(b)
+b.pop(2)
+print(b)
+print(b.values())
+print(b.keys())
+print(b.items())
+d = {'a', 'b', 'c', 'd'}
+d = dict.fromkeys(d,10)
+print(d)
+e = {1:"hi", 'a': 123, 100:32.1}
+print(e.setdefault('a'))
+print(e.setdefault('h'))
+print(e)
+print(e.setdefault('c',122))
+print(e)
+a.clear()
+b.clear()
+d.clear()
+e.clear()
+print(a,b,e,d)
+
+s = {1:"abc", 2:"qwe", 3:{"as":12, "rew": 43}}
+print(s[3]["as"])
+
+b = {'a': 1, 'b': 2, 'c': 87}
+print({k:v**2 for k,v in b.items()})
