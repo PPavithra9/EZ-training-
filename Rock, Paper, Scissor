@@ -1,0 +1,44 @@
+import random
+choice = ["rock", "paper", "scissor"]
+p1c = 0
+p2c = 0
+print("p1 = ",p1)
+print("p2 = ",p2)
+play = 1
+
+while play == 1:
+    p1 = random.choice(choice)
+    p2 = random.choice(choice)
+    if p1 == 'rock' and p2 == 'paper':
+        print("p2 wins")
+        p2c +=1
+        print(p2c)
+    if p1 == 'paper' and p2 == 'rock':
+        print("P1 wins")
+        p1c+=1
+    if p1 == 'rock' and p2 == 'scissor':
+        print("p1 wins")
+        p1c+=1
+    if p1 == 'scissor' and p2 == 'rock':
+        print("p2 wins")
+        p2c+=1
+    if p1 == 'paper' and p2 == 'scissor':
+        print("p2 wins")
+        p2c+=1
+    if p1 == 'scissor' and p2 == 'paper':
+        print("p1 wins")
+        p1c+=1
+    if p1 == p2:
+        print("draw")
+    play = int(input("Do you want to continue, press 1: "))
+    
+print("The over all winner is: ")
+print("P1 wins= ",p1c)
+print("P2 wins= ",p2c)
+
+if p1c>p2c:
+    print("P1 won the game")
+elif p2c>p1c:
+    print("P2 won the game")
+else:
+    print("It is a draw")
