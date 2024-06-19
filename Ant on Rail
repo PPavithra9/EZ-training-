@@ -1,0 +1,10 @@
+n = int(input("Enter the number of moves made by the ant: "))
+ls = list(map(int,input().split()))
+c = 0
+
+for i in range(0,n-1):
+    if ls[i] == 1 and ls[i+1] == -1:
+        c = c+1
+        
+        
+print("The number of times the was in same positioin: ",c)
