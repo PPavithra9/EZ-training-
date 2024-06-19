@@ -1,0 +1,93 @@
+class node_data:
+    def __init__(self, node, Hkey):
+        self.node = node
+        self.hkey = Hkey
+class node:
+    
+    def __init__(self,data):
+        self.value = data
+        self.left = None
+        self.right = None
+        
+def levelorder(root):
+    q = [root]
+    q.append(None)
+    
+    
+    while len(q)>0:
+        curr = q.pop(0)
+        
+        
+        if curr == None:
+            if len(q) == 0:
+                break
+            else:
+                print()
+                q.append(None)
+                
+        else:
+            print(curr.value,end=" ")
+            if curr.left !=None:
+                q.append(curr.left)
+            if curr.right !=None:
+                q.append(curr.right)
+
+                
+def height(root):
+    if root == None:
+        return 0
+    lh = height(root.left)
+    rh = height(root.right)
+    return max(lh,rh)+1
+
+if __name__ == "__main__":
+    root = node(1)
+    
+    root.left = node(2)
+    root.right = node(3)
+    
+    root.left.left = node(4)
+    root.left.right = node(5)
+    
+    root.right.left  = node(6)
+    root.right.right = node(7)
+    
+    print("BFS: ")
+    levelorder(root)
+    hi=height(root)
+    print()
+    print("Height is : ",hi)
+
+def topview(root):
+    temp = node_data(root ,0)
+    q = [temp]
+    q.append(None)
+    key_dic = {} 
+    
+    
+    while len(q) != 0:
+        curr = q.pop(0)
+        
+        if curr == None:
+            if len(q) == 0:
+                break
+            else:
+                q.append(None)
+                
+        else:
+            if curr.hkey not in key_dic.keys():
+                key_dic[curr.hkey] = curr.node.value
+            
+            if curr.node.left != None:
+                temp = node_data(curr.node.left,curr.hkey-1)
+                q.append(temp)
+            if curr.node.right != None:
+                temp = node_data(curr.node.right,curr.hkey+1)
+                q.append(temp)
+    
+               
+topview(root)          
+for i in sorted(key_dic):
+    print(key_dic[i])
+            
+print(key_dic)
