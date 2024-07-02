@@ -1,0 +1,10 @@
+l =[-3,-2,5,-1,3,0,2]
+mini = l[0]
+for i in range(0,len(l)):
+    if i < 0:
+        pass
+    elif mini < 0:
+        mini = l[i]
+    elif mini > l[i]:
+        mini = l[i]
+print(mini)
